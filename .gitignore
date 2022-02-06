@@ -1,0 +1,10 @@
+# node modules
+/node_modules
+
+# processed sources
+/build
+/dist
+src/gulp
+
+# files
+/tasks.todo 

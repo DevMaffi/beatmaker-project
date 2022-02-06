@@ -1,0 +1,39 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": "airbnb-base",
+  "ignorePatterns": [
+    "/config",
+    "/dist",
+    "gulpfile.js",
+    "/node_modules",
+    "webpack.config.js"
+  ],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "babelOptions": {
+      "configFile": "./.babelrc.json"
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "arrow-body-style": "off",
+    "arrow-parens": "off",
+    "comma-dangle": "off",
+    "comma-spacing": "off",
+    "implicit-arrow-linebreak": "off",
+    "import/newline-after-import": "warn",
+    "import/no-unresolved": "off",
+    "linebreak-style": "off",
+    "no-console": "off",
+    "no-multiple-empty-lines": "off",
+    "no-param-reassign": "off",
+    "no-unused-vars": "warn",
+    "object-curly-newline": "off",
+    "object-curly-spacing": "off",
+    "semi": "off"
+  }
+}
