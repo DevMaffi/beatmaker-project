@@ -25,6 +25,7 @@
     "comma-dangle": "off",
     "comma-spacing": "off",
     "implicit-arrow-linebreak": "off",
+    "import/extensions": "off",
     "import/newline-after-import": "warn",
     "import/no-unresolved": "off",
     "linebreak-style": "off",
