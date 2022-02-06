@@ -5,6 +5,7 @@ import * as nodePath from 'path'
 
 // plugins
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
+import CopyPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
@@ -71,7 +72,18 @@ const config = {
     extensions: ['.js', '.json', '.sass', '.scss'],
   },
   output: { path: path.distDir },
-  plugins: [new CleanWebpackPlugin(), ...applyHtmlPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: './gulp/files/sounds',
+          to: `${path.distDir}/[contenthash][ext]`,
+        },
+      ],
+    }),
+    ...applyHtmlPlugin(),
+  ],
   module: {
     rules: [
       {

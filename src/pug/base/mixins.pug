@@ -1,6 +1,35 @@
-mixin head(title="Home")
+mixin head(title="Beatmaker")
   head
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title= title
+
+mixin controls({ trackID, type })
+  - const title = type.replace(/\w/, txt => txt.charAt(0).toUpperCase());
+
+  // CONTROLS
+  .controls
+    h1= title
+    button.mute(class=`${type}-volume` data-tack=trackID)
+      i.fas.fa-volume-mute
+
+    // SELECT
+    select(id=`${type}-select` name=`${type}-select`)
+      block
+
+mixin pads-container({ type, n })
+  - let i = 0
+
+  // PADS CONTAINER
+  div(class=`${type}`)
+    while n > i
+      .pad(class=`pad-${type} b${i++}`)
+
+mixin track({ trackID, type, n })
+  // TRACK
+  div(class=`${type}-track`)
+    +controls({ trackID, type })
+      block
+
+    +pads-container({ type, n })
