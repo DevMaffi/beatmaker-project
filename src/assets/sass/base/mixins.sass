@@ -1,0 +1,29 @@
+// Modules
+
+// variables
+@use 'variables' as vars
+
+// plugins
+@use '../plugins/plugins-dir' as plugins
+
+=track-neighbor($track-type, $neighbors...)
+  /* TRACK NEIGHBOR
+  .#{$track-type}-track
+    +
+      @each $neighbor in $neighbors
+        .#{$neighbor}-track
+          +plugins.margin(5rem null null)
+
+=pad-bg($bg-color)
+  background-color: $bg-color
+
+  &.active
+    background-color: plugins.shade($bg-color, 25%)
+
+=btn-styles
+  background-color: vars.$btn-primary
+  border: none
+  color: vars.$btn-font-color
+  cursor: pointer
+
+  @content

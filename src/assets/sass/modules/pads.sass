@@ -1,0 +1,36 @@
+// Modules
+
+// variables
+@use '../base/variables' as vars
+
+// mixins
+@use '../base/mixins'
+
+// plugins
+@use '../plugins/plugins-dir' as plugins
+
+/* PADS
+
+.kick,
+.snare,
+.hihat
+  display: flex
+
+.pad-kick,
+.pad-snare,
+.pad-hihat
+  +plugins.size(4.5rem)
+  +plugins.margin(1rem .5rem)
+  cursor: pointer
+
+.pad-kick
+  +mixins.pad-bg(vars.$kick-primary)
+
+.pad-snare
+  +mixins.pad-bg(vars.$snare-primary)
+
+.pad-hihat
+  +mixins.pad-bg(vars.$hihat-primary)
+
+.pad
+  transition: vars.$trans-default

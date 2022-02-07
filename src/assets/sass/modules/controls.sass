@@ -1,0 +1,25 @@
+// Modules
+
+// variables
+@use '../base/variables' as vars
+
+// mixins
+@use '../base/mixins'
+
+// plugins
+@use '../plugins/plugins-dir' as plugins
+
+/* CONTROLS
+
+.controls
+  flex: 1
+  display: flex
+  justify-content: space-between
+  align-items: center
+  +plugins.margin(null 2rem null null)
+
+.controls .mute
+  +mixins.btn-styles
+    +plugins.padding(.7rem)
+    font-size: 1rem
+    transition: vars.$trans-default
