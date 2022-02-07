@@ -24,7 +24,7 @@ mixin pads-container({ type, n })
   // PADS CONTAINER
   div(class=`${type}`)
     while n > i
-      .pad(class=`pad-${type} b${i++}`)
+      .pad(class=`${type}-pad b${i++}`)
 
 mixin track({ trackID, type, n })
   // TRACK
