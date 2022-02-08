@@ -5,6 +5,7 @@
   },
   "extends": "airbnb-base",
   "ignorePatterns": [
+    "/build",
     "/config",
     "/dist",
     "gulpfile.js",
