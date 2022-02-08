@@ -99,7 +99,10 @@ const config = {
         use: cssLoaders('sass-loader'),
       },
       {
-        test: /\.js$/,
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false,
+        },
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
