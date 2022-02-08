@@ -24,13 +24,13 @@
   cursor: pointer
 
 .kick-pad
-  +mixins.pad-bg(vars.$kick-primary)
+  +mixins.pad-bg(vars.$kick-primary, vars.$kick-active)
 
 .snare-pad
-  +mixins.pad-bg(vars.$snare-primary)
+  +mixins.pad-bg(vars.$snare-primary, vars.$snare-active)
 
 .hihat-pad
-  +mixins.pad-bg(vars.$hihat-primary)
+  +mixins.pad-bg(vars.$hihat-primary, vars.$hihat-active)
 
 .pad
   transition: vars.$trans-default

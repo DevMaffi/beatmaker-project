@@ -14,11 +14,11 @@
         .#{$neighbor}-track
           +plugins.margin(5rem null null)
 
-=pad-bg($bg-color)
+=pad-bg($bg-color, $bg-active)
   background-color: $bg-color
 
   &.active
-    background-color: plugins.shade($bg-color, 25%)
+    background-color: $bg-active
 
 =btn-styles
   background-color: vars.$btn-primary
