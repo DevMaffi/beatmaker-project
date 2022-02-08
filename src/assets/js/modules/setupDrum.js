@@ -10,6 +10,9 @@ function setupDrum() {
   drumKit.pads.forEach(pad => {
     // this refers to pad
     pad.addEventListener('click', drumKit.activePad)
+    pad.addEventListener('animationend', function () {
+      this.style.animation = ''
+    })
   })
 
   // this refers to drumKit
