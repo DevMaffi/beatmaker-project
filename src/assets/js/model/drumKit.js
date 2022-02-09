@@ -44,8 +44,21 @@ class DrumKit {
     this.#index++
   }
 
+  #updateBtn = () => {
+    this.playBtn.classList.toggle('active')
+
+    if (!this.#isPlaying) {
+      this.playBtn.innerText = 'Stop'
+      return
+    }
+
+    this.playBtn.innerText = 'Play'
+  }
+
   start = () => {
     const interval = (60 / this.bpm) * 1000
+
+    this.#updateBtn()
 
     // check if it`s playing
     if (!this.#isPlaying) {
