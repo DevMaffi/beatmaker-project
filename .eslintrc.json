@@ -41,6 +41,7 @@
     "import/prefer-default-export": "off",
     "indent": "off",
     "linebreak-style": "off",
+    "lines-between-class-members": "off",
     "no-console": "off",
     "no-empty": "warn",
     "no-extra-semi": "off",
@@ -53,6 +54,7 @@
     "no-unused-expressions": "warn",
     "no-unused-vars": "warn",
     "no-useless-constructor": "warn",
+    "no-useless-return": "warn",
     "nonblock-statement-body-position": "off",
     "object-curly-newline": "off",
     "object-curly-spacing": "off",
@@ -61,6 +63,7 @@
     "prefer-const": "warn",
     "quotes": "warn",
     "semi": "off",
+    "space-before-blocks": "off",
     "space-before-function-paren": "off",
     "space-in-parens": "off",
     "space-infix-ops": "off"

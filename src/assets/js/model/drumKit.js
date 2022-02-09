@@ -1,5 +1,6 @@
 class DrumKit {
   #index = 0
+  #isPlaying = null
 
   constructor() {
     this.pads = document.querySelectorAll('.pad')
@@ -45,7 +46,16 @@ class DrumKit {
 
   start = () => {
     const interval = (60 / this.bpm) * 1000
-    setInterval(() => this.#repeat(), interval)
+
+    // check if it`s playing
+    if (!this.#isPlaying) {
+      this.#isPlaying = setInterval(() => this.#repeat(), interval)
+      return
+    }
+
+    // clear interval
+    clearInterval(this.#isPlaying)
+    this.#isPlaying = null
   }
 }
 
