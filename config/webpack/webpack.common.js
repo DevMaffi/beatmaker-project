@@ -5,7 +5,6 @@ import * as nodePath from 'path'
 
 // plugins
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
-import CopyPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
@@ -62,6 +61,7 @@ const config = {
     alias: {
       '@': `${path.srcDir}`,
       '@common': `${path.srcDir}/assets/js/modules/common`,
+      '@files': `${path.srcDir}/assets/files`,
       '@i18n': `${path.srcDir}/assets/js/i18n`,
       '@model': `${path.srcDir}/assets/js/model`,
       '@modules': `${path.srcDir}/assets/js/modules`,
@@ -72,18 +72,7 @@ const config = {
     extensions: ['.js', '.json', '.sass', '.scss'],
   },
   output: { path: path.distDir },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: './gulp/files/sounds',
-          to: `${path.distDir}/[contenthash][ext]`,
-        },
-      ],
-    }),
-    ...applyHtmlPlugin(),
-  ],
+  plugins: [new CleanWebpackPlugin(), ...applyHtmlPlugin()],
   module: {
     rules: [
       {
@@ -105,6 +94,14 @@ const config = {
         },
         exclude: /node_modules/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.(gif|ico|jpe?g|png|svg|webp)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+        type: 'asset/resource',
       },
     ],
   },

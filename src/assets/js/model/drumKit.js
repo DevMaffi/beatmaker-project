@@ -1,3 +1,21 @@
+// Modules
+
+// kick
+import kickClassic from '@files/sounds/kick-classic.wav'
+import kick808 from '@files/sounds/kick-808.wav'
+import kickHeavy from '@files/sounds/kick-heavy.wav'
+
+// snare
+import snareAcoustic from '@files/sounds/snare-acoustic01.wav'
+import snare808 from '@files/sounds/snare-808.wav'
+import snareVinyl from '@files/sounds/snare-vinyl02.wav'
+
+// hihat
+import hihatAcoustic from '@files/sounds/hihat-acoustic01.wav'
+import hihat808 from '@files/sounds/hihat-808.wav'
+
+// DrumKit
+
 class DrumKit {
   #index = 0
   #isPlaying = null
@@ -8,11 +26,46 @@ class DrumKit {
     this.kickAudio = document.querySelector('.kick-sound')
     this.snareAudio = document.querySelector('.snare-sound')
     this.hihatAudio = document.querySelector('.hihat-sound')
+    this.selects = document.querySelectorAll('select')
     this.bpm = 250
   }
 
   activePad() {
     this.classList.toggle('active')
+  }
+
+  #handleSound = type => {
+    const soundsMap = {
+      'kick-classic': kickClassic,
+      'kick-808': kick808,
+      'kick-heavy': kickHeavy,
+      'snare-acoustic01': snareAcoustic,
+      'snare-808': snare808,
+      'snare-vinyl02': snareVinyl,
+      'hihat-acoustic01': hihatAcoustic,
+      'hihat-808': hihat808,
+    }
+
+    return soundsMap[type]
+  }
+
+  changeSound = e => {
+    const selectionName = e.target.name
+    const selectionValue = e.target.value
+
+    switch (selectionName) {
+      case 'kick-select':
+        this.kickAudio.src = this.#handleSound(selectionValue)
+        break
+      case 'snare-select':
+        this.snareAudio.src = this.#handleSound(selectionValue)
+        break
+      case 'hihat-select':
+        this.hihatAudio.src = this.#handleSound(selectionValue)
+        break
+      default:
+        console.error('ERROR:drumKit.changeSound()')
+    }
   }
 
   #playAudio = type => {
