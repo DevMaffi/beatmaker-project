@@ -16,5 +16,8 @@
   align-items: center
   width: 75%
 
+  &:first-child
+    +plugins.margin(5rem null null)
+
 +mixins.track-neighbor('kick', 'snare')
 +mixins.track-neighbor('snare', 'hihat')

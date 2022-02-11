@@ -1,0 +1,27 @@
+// Modules
+
+// variables
+@use '../base/vars'
+
+// plugins 
+@use '../plugins/plugins-dir' as plugins
+
+/* TEMPO
+
+.tempo
+  +plugins.margin(3rem)
+  width: 30%
+
+.tempo-slider
+  +plugins.prefixer(appearance, none, ('webkit', 'moz'))
+  +plugins.size(100%, .4rem)
+  background-color: vars.$gray-primary
+  border-radius: 1rem
+  outline: none
+  cursor: pointer
+  position: relative
+
+.tempo p
+  +plugins.margin(2rem)
+  text-align: center
+  font-size: 1rem
