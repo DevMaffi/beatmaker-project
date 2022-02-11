@@ -9,6 +9,10 @@ function setupDrum() {
 
   // Event listeners
 
+  drumKit.muteBtns.forEach(btn =>
+    btn.addEventListener('click', e => drumKit.mute(e))
+  )
+
   drumKit.selects.forEach(select =>
     select.addEventListener('change', e => drumKit.changeSound(e))
   )

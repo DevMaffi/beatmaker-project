@@ -27,11 +27,34 @@ class DrumKit {
     this.snareAudio = document.querySelector('.snare-sound')
     this.hihatAudio = document.querySelector('.hihat-sound')
     this.selects = document.querySelectorAll('select')
+    this.muteBtns = document.querySelectorAll('.mute')
     this.bpm = 250
   }
 
   activePad() {
     this.classList.toggle('active')
+  }
+
+  mute = e => {
+    e.target.classList.toggle('active')
+
+    const muteIndex = e.target.getAttribute('data-track')
+    const isActive = +!e.target.classList.contains('active')
+
+    switch (muteIndex) {
+      case '0':
+        this.kickAudio.volume = isActive
+        break
+      case '1':
+        this.snareAudio.volume = isActive
+        break
+      case '2':
+        this.hihatAudio.volume = isActive
+        break
+
+      default:
+        console.error('ERROR:drumKit.mute()')
+    }
   }
 
   #handleSound = type => {
