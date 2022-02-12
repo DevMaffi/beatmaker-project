@@ -19,7 +19,7 @@ import hihat808 from '@files/sounds/hihat-808.wav'
 class DrumKit {
   #index = 0
   #isPlaying = null
-  #bpm = 150
+  #bpm = 160
 
   constructor() {
     this.pads = document.querySelectorAll('.pad')
