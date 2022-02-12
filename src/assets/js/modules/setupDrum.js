@@ -27,6 +27,10 @@ function setupDrum() {
 
   // this refers to drumKit
   drumKit.playBtn.addEventListener('click', drumKit.start)
+
+  drumKit.tempoSlider.addEventListener('input', e => drumKit.changeTempo(e))
+
+  drumKit.tempoSlider.addEventListener('change', e => drumKit.updateTempo(e))
 }
 
 export default setupDrum

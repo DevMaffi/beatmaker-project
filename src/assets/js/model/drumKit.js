@@ -19,6 +19,7 @@ import hihat808 from '@files/sounds/hihat-808.wav'
 class DrumKit {
   #index = 0
   #isPlaying = null
+  #bpm = 150
 
   constructor() {
     this.pads = document.querySelectorAll('.pad')
@@ -26,9 +27,9 @@ class DrumKit {
     this.kickAudio = document.querySelector('.kick-sound')
     this.snareAudio = document.querySelector('.snare-sound')
     this.hihatAudio = document.querySelector('.hihat-sound')
+    this.tempoSlider = document.querySelector('.tempo-slider')
     this.selects = document.querySelectorAll('select')
     this.muteBtns = document.querySelectorAll('.mute')
-    this.bpm = 250
   }
 
   activePad() {
@@ -121,18 +122,18 @@ class DrumKit {
   }
 
   #updateBtn = () => {
-    this.playBtn.classList.toggle('active')
-
     if (!this.#isPlaying) {
       this.playBtn.innerText = 'Stop'
+      this.playBtn.classList.add('active')
       return
     }
 
     this.playBtn.innerText = 'Play'
+    this.playBtn.classList.remove('active')
   }
 
   start = () => {
-    const interval = (60 / this.bpm) * 1000
+    const interval = (60 / this.#bpm) * 1000
 
     this.#updateBtn()
 
@@ -145,6 +146,20 @@ class DrumKit {
     // clear interval
     clearInterval(this.#isPlaying)
     this.#isPlaying = null
+  }
+
+  changeTempo = e => {
+    const tempoText = document.querySelector('.tempo-nr')
+    tempoText.innerText = e.target.value
+  }
+
+  updateTempo = e => {
+    clearInterval(this.#isPlaying)
+    this.#isPlaying = null
+
+    this.#bpm = e.target.value
+
+    if (this.playBtn.classList.contains('active')) this.start()
   }
 }
 
