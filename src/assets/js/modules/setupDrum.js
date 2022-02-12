@@ -9,12 +9,10 @@ function setupDrum() {
 
   // Event listeners
 
-  drumKit.muteBtns.forEach(btn =>
-    btn.addEventListener('click', e => drumKit.mute(e))
-  )
+  drumKit.muteBtns.forEach(btn => btn.addEventListener('click', drumKit.mute))
 
   drumKit.selects.forEach(select =>
-    select.addEventListener('change', e => drumKit.changeSound(e))
+    select.addEventListener('change', drumKit.changeSound)
   )
 
   drumKit.pads.forEach(pad => {
@@ -28,9 +26,9 @@ function setupDrum() {
   // this refers to drumKit
   drumKit.playBtn.addEventListener('click', drumKit.start)
 
-  drumKit.tempoSlider.addEventListener('input', e => drumKit.changeTempo(e))
+  drumKit.tempoSlider.addEventListener('input', drumKit.changeTempo)
 
-  drumKit.tempoSlider.addEventListener('change', e => drumKit.updateTempo(e))
+  drumKit.tempoSlider.addEventListener('change', drumKit.updateTempo)
 }
 
 export default setupDrum
